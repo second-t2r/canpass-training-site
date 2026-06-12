@@ -1,0 +1,37 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>CanPass 研修・運用資料</title>
+<style>
+:root{--bg:#0f1c2e;--ink:#16263f;--muted:#6b7c92;--line:#d6e0ec;--accent:#2455a4;--amber:#c95001}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--bg);font-family:'Hiragino Kaku Gothic ProN',sans-serif;color:#fff;display:flex;align-items:center;justify-content:center;padding:24px}
+#gate{position:fixed;inset:0;background:#0f1c2e;display:flex;align-items:center;justify-content:center;z-index:10}
+.box{background:#fff;color:var(--ink);padding:28px 26px;border-radius:14px;max-width:340px;width:88%;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.box h1{font-size:18px;margin:0 0 4px}.box p{font-size:12px;color:var(--muted);margin:0 0 16px}
+.box input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-size:15px;margin-bottom:10px}
+.box button{width:100%;padding:11px;border:0;border-radius:8px;background:var(--accent);color:#fff;font-size:15px;cursor:pointer}
+.err{color:#b23b3b;font-size:12px;height:14px;margin-top:6px}
+#app{display:none;max-width:680px;width:100%}
+.kicker{color:#9fb1c8;font-size:12px;letter-spacing:.12em}
+h2{font-size:26px;margin:6px 0 2px}.sub{color:#9fb1c8;font-size:13px;margin-bottom:22px}
+.card{display:block;background:#16365c;border:1px solid #25446c;border-radius:12px;padding:18px 20px;margin-bottom:14px;text-decoration:none;color:#fff}
+.card:hover{background:#1c3f6e}
+.card .t{font-size:17px;font-weight:700}.card .d{font-size:12px;color:#9fb1c8;margin-top:4px}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;background:#0b1626;color:#9fb1c8;margin-left:8px}
+.foot{color:#6b7c92;font-size:11px;margin-top:18px;line-height:1.7}
+</style></head><body>
+<div id="gate"><form class="box" onsubmit="return unlock(event)">
+<h1>CanPass 研修・運用資料</h1><p>関係者限定（L2・敲き）<br>閲覧パスワードを入力してください</p>
+<input id="pw" type="password" autocomplete="off" placeholder="パスワード" autofocus>
+<button type="submit">開く</button><div class="err" id="err"></div></form></div>
+<div id="app">
+<div class="kicker">CANPASS ｜ 関係者限定</div>
+<h2>研修・運用資料</h2>
+<div class="sub">2026-06 ｜ いずれも最終版ではなく敲き。配布前に久保監修＋代表承認。</div>
+<a class="card" href="./worker.html"><div class="t">① CanPass はたらき方研修<span class="tag">ワーカー向け</span></div><div class="d">人×AI／1日の流れ／Claude／アナログ撮影検品／スマホ参画／守ること（全31枚）</div></a>
+<a class="card" href="./admin.html"><div class="t">② CanPass 運用ガイド<span class="tag">PM/運用向け・L2</span></div><div class="d">運用モデル／記録／体調連動アサイン／成果物単位／スマホ3レイヤー／Human Gate／レベル制（全33枚）</div></a>
+<div class="foot">取り扱い注意：本資料はL2機密・関係者限定。限定URL運用（推測されにくいだけでアクセス制御ではない）＋noindex。医療系の生データ・実名・録画は本サイトに含めない。社外提示前に要精査（PM→代表）。</div>
+</div>
+<script>
+function unlock(e){e.preventDefault();if(document.getElementById('pw').value==='CanPass'){sessionStorage.setItem('cp_ok','1');document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block'}else{document.getElementById('err').textContent='パスワードが違います'}return false}
+if(sessionStorage.getItem('cp_ok')==='1'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block'}
+</script></body></html>

@@ -1,0 +1,11 @@
+# 医療系の生データ・実名・録画・原本は一切コミットしない（distribution_rules L3）
+*.mp4
+*.mov
+*.wav
+*.m4a
+*.csv
+*.xlsx
+**/raw/**
+**/原本/**
+.DS_Store
+.claude/
